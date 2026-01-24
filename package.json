@@ -1,0 +1,26 @@
+{
+  "name": "study",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "pg-flyway": "pg-flyway",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/site15/study.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/site15/study/issues"
+  },
+  "homepage": "https://github.com/site15/study#readme",
+  "description": "",
+  "devDependencies": {
+    "pg-flyway": "^1.3.2"
+  },
+  "pgFlyway": {
+    "databaseUrl": "postgres://study_username:study_password@localhost:45432/study_database?schema=public"
+  }
+}
