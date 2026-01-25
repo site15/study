@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect x="15" y="25" width="70" height="50" rx="5" fill="#9C27B0"/>
+  <rect x="25" y="35" width="15" height="30" fill="#E1BEE7"/>
+  <rect x="45" y="35" width="15" height="30" fill="#E1BEE7"/>
+  <rect x="65" y="35" width="15" height="30" fill="#E1BEE7"/>
+  <path d="M32 50 L42 50 M52 50 L62 50 M72 50 L82 50" stroke="#fff" stroke-width="2"/>
+  <text x="50" y="85" font-family="Arial" font-size="5" fill="#9C27B0" text-anchor="middle">SYSTEM DESIGN</text>
+</svg>

@@ -1,0 +1,198 @@
+.document-browser {
+  width: 100%;
+  padding: 2rem 2rem;
+}
+
+.document-browser h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  text-align: center;
+  color: #7f8c8d;
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+}
+
+.folders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.folder-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #ecf0f1;
+  display: flex;
+  flex-direction: column;
+}
+
+.folder-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.folder-image-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  min-height: 80px;
+  align-items: center;
+}
+
+.folder-image {
+  max-width: 80px;
+  max-height: 80px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.folder-header {
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.folder-header h2 {
+  margin: 0 0 0.5rem 0;
+  color: #2c3e50;
+  font-size: 1.3rem;
+}
+
+.doc-count {
+  background-color: #3498db;
+  color: white;
+  padding: 0.2rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.folder-completion {
+  background-color: #ffc107;
+  color: #212529;
+  padding: 0.2rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.folder-completed-badge {
+  background-color: #28a745;
+  color: white;
+  padding: 0.2rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.folder-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+/* Folder completion styles */
+.folder-card.completed {
+  border-color: #28a745;
+  background: linear-gradient(135deg, #f8fff8 0%, #e8f5e8 100%);
+}
+
+.folder-card.completed:hover {
+  box-shadow: 0 5px 20px rgba(40, 167, 69, 0.2);
+}
+
+.folder-stats {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.folder-completion {
+  background: #f8f9fa;
+  color: #495057;
+  padding: 0.2rem 0.6rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  border: 1px solid #dee2e6;
+}
+
+.folder-completed-badge {
+  background: #28a745;
+  color: white;
+  padding: 0.2rem 0.6rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Mobile responsive for folder stats */
+@media (max-width: 768px) {
+  .folder-stats {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+  
+  .folder-completion,
+  .folder-completed-badge {
+    font-size: 0.7rem;
+  }
+}
+
+.browse-button {
+  display: inline-block;
+  background-color: #27ae60;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  text-align: center;
+}
+
+.browse-button:hover {
+  background-color: #219653;
+}
+
+.loading {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.2rem;
+  color: #7f8c8d;
+}
+
+/* Completed folder styling */
+.folder-card.completed {
+  border-color: #28a745;
+  background: linear-gradient(135deg, #d4edda 0%, #f8f9fa 100%);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .folders-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .document-browser {
+    padding: 1rem;
+  }
+  
+  .folder-image {
+    max-width: 60px;
+    max-height: 60px;
+  }
+  
+  .folder-image-container {
+    min-height: 60px;
+  }
+}
