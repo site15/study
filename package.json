@@ -4,6 +4,14 @@
   "main": "index.js",
   "scripts": {
     "pg-flyway": "pg-flyway",
+    "start": "cd landing && npm run dev",
+    "build": "cd landing && npm run build",
+    "build:github": "cd landing && npm run build:github",
+    "pm2:start": "./start-pm2.sh",
+    "pm2:stop": "./stop-pm2.sh",
+    "pm2:restart": "./restart-pm2.sh",
+    "pm2:status": "pm2 status",
+    "pm2:logs": "pm2 logs study-landing",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,7 +24,7 @@
     "url": "https://github.com/site15/study/issues"
   },
   "homepage": "https://github.com/site15/study#readme",
-  "description": "",
+  "description": "Technical study materials and documentation with React landing page",
   "devDependencies": {
     "pg-flyway": "^1.3.2"
   },

@@ -46,7 +46,7 @@ jobs:
       - name: Build with Vite
         run: |
           cd landing
-          npm run build
+          npm run build:github
           
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

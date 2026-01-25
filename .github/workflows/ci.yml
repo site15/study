@@ -32,4 +32,4 @@ jobs:
       - name: Test build
         run: |
           cd landing
-          npm run build
+          npm run build:github
