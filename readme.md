@@ -26,14 +26,14 @@ See `.github/README.md` for detailed workflow documentation.
 
 ### Development Mode
 
-1. Navigate to the landing directory:
-   ```bash
-   cd landing
-   ```
-
-2. Install dependencies:
+1. Install dependencies (this will also install landing dependencies):
    ```bash
    npm install
+   ```
+
+2. Navigate to the landing directory:
+   ```bash
+   cd landing
    ```
 
 3. Start development server:
@@ -42,6 +42,12 @@ See `.github/README.md` for detailed workflow documentation.
    ```
 
 The application will be available at `http://localhost:5173`
+
+Alternatively, you can run the development server from the root:
+
+```bash
+npm start
+```
 
 ### Production Mode (PM2)
 

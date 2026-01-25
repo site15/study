@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "prepare": "cd landing && npm install",
+    "postinstall": "cd landing && npm install",
     "pg-flyway": "pg-flyway",
     "start": "cd landing && npm run dev",
     "build": "cd landing && npm run build",
