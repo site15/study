@@ -34,6 +34,28 @@ The application will be available at `http://localhost:5174`
 npm run build
 ```
 
+### Deploy to GitHub Pages
+
+1. **First-time setup**:
+   - Create a new repository on GitHub named `study`
+   - Run the setup script with your GitHub username:
+     ```bash
+     npm run setup-deploy site15
+     ```
+   - This will automatically update the homepage URL in package.json
+
+2. **Deploy**:
+```bash
+npm run deploy
+```
+
+This will:
+- Build the production version of your app
+- Deploy the contents of the `dist` folder to the `gh-pages` branch
+- Make your site available at `https://site15.github.io/study`
+
+**Note**: After first deployment, it may take a few minutes for GitHub Pages to process and publish your site.
+
 ## Usage
 
 1. **Browse Documents**: Click on any category to see available documents

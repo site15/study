@@ -1,0 +1,11 @@
+# Default owners for entire repository
+* @EndyKaufman
+
+# Landing page specific owners
+/landing/ @EndyKaufman
+
+# Documentation owners
+/docs/ @EndyKaufman
+
+# GitHub Actions workflows
+/.github/workflows/ @EndyKaufman
