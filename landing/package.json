@@ -3,6 +3,12 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:site15/study.git"
+  },
+  "author": "EndyKaufman <admin@site15.ru>",
+  "license": "MIT",
   "homepage": "https://site15.github.io/study",
   "scripts": {
     "dev": "node scripts/copy-docs.js && vite",

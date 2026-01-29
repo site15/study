@@ -1,134 +1,144 @@
-# Study Docs Reader
+# 📚 Читалка технической документации
 
-A responsive web application for reading technical documentation with bookmark functionality.
+Отзывчивое веб-приложение для чтения технической документации с функциональностью закладок.
 
-## Features
+## 📁 Информация о репозитории
 
-- **Document Browser**: Browse through different documentation categories
-- **Markdown Reader**: Clean, readable interface for technical documentation
-- **Paragraph-Level Bookmarks**: Bookmark any paragraph with persistent storage
-- **Bookmarks Management**: View, navigate to, and manage all your bookmarks
-- **Responsive Design**: Works on both mobile and desktop devices
-- **Local Storage**: All bookmarks are saved locally in your browser
+- **Репозиторий**: `git@github.com:site15/study.git`
+- **Автор**: EndyKaufman <admin@site15.ru>
+- **GitHub Pages**: https://site15.github.io/study
 
-## Getting Started
+## 🌟 Возможности
 
-### Prerequisites
-- Node.js (v14 or higher)
-- npm or yarn
+- **Навигатор документов**: Просмотр различных категорий документации
+- **Читалка Markdown**: Чистый, удобочитаемый интерфейс для технической документации
+- **Закладки на уровне абзацев**: Добавление закладок к любому абзацу с постоянным хранением
+- **Управление закладками**: Просмотр, переход и управление всеми вашими закладками
+- **Адаптивный дизайн**: Работает на мобильных и десктопных устройствах
+- **Локальное хранение**: Все закладки сохраняются локально в вашем браузере
 
-### Installation
+## 🚀 Начало работы
+
+### Предварительные требования
+- Node.js (v14 или выше)
+- npm или yarn
+
+### Установка
 ```bash
 cd landing
 npm install
 ```
 
-### Development
+### Разработка
 ```bash
 npm run dev
 ```
-The application will be available at `http://localhost:5174`
+Приложение будет доступно по адресу `http://localhost:5173`
 
-### Build for Production
+### Сборка для продакшена
 ```bash
 npm run build
 ```
 
-### Deploy to GitHub Pages
+### Развертывание на GitHub Pages
 
-1. **First-time setup**:
-   - Create a new repository on GitHub named `study`
-   - Run the setup script with your GitHub username:
+1. **Первоначальная настройка**:
+   - Репозиторий уже настроен для `site15`
+   - Запустите скрипт настройки:
      ```bash
      npm run setup-deploy site15
      ```
-   - This will automatically update the homepage URL in package.json
+   - Это автоматически обновит URL домашней страницы в package.json
 
-2. **Deploy**:
+2. **Развертывание**:
 ```bash
 npm run deploy
 ```
 
-This will:
-- Build the production version of your app
-- Deploy the contents of the `dist` folder to the `gh-pages` branch
-- Make your site available at `https://site15.github.io/study`
+Это выполнит:
+- Сборку продакшен-версии вашего приложения
+- Развертывание содержимого папки `dist` в ветку `gh-pages`
+- Сделает ваш сайт доступным по адресу `https://site15.github.io/study`
 
-**Note**: After first deployment, it may take a few minutes for GitHub Pages to process and publish your site.
+**Примечание**: После первого развертывания может потребоваться несколько минут для обработки и публикации сайта GitHub Pages.
 
-## Usage
+## 📖 Использование
 
-1. **Browse Documents**: Click on any category to see available documents
-2. **Read Documents**: Click on a document to read it with markdown formatting
-3. **Add Bookmarks**: Click the 📑 icon next to any paragraph to bookmark it
-4. **View Bookmarks**: Navigate to the Bookmarks page to see all saved bookmarks
-5. **Navigate from Bookmarks**: Click on any bookmark to jump directly to that paragraph
+1. **Просмотр документов**: Нажмите на любую категорию, чтобы увидеть доступные документы
+2. **Чтение документов**: Нажмите на документ, чтобы прочитать его с форматированием markdown
+3. **Добавление закладок**: Нажмите на иконку 📑 рядом с любым абзацем, чтобы добавить закладку
+4. **Просмотр закладок**: Перейдите на страницу закладок, чтобы увидеть все сохраненные закладки
+5. **Переход из закладок**: Нажмите на любую закладку, чтобы перейти непосредственно к этому абзацу
 
-## Project Structure
+## 📁 Структура проекта
 
 ```
 landing/
 ├── src/
-│   ├── components/          # Reusable UI components
-│   │   ├── Navbar.jsx       # Navigation header
+│   ├── components/          # Переиспользуемые UI компоненты
+│   │   ├── Navbar.jsx       # Навигационный заголовок
 │   │   └── Navbar.css
-│   ├── pages/               # Main application pages
-│   │   ├── DocumentBrowser.jsx  # Main library view
-│   │   ├── DocumentList.jsx     # Folder contents view
-│   │   ├── DocumentReader.jsx   # Document reading view
-│   │   └── BookmarksPage.jsx    # Bookmarks management
-│   ├── hooks/               # Custom React hooks
-│   │   ├── useDocuments.js  # Document data management
-│   │   └── useBookmarks.js  # Bookmark functionality
-│   ├── utils/               # Utility functions
-│   │   └── documentLoader.js # Document content loading
-│   ├── App.jsx             # Main application component
-│   ├── App.css             # Global styles
-│   └── main.jsx            # Application entry point
-├── public/                 # Static assets
-└── index.html             # HTML template
+│   ├── pages/               # Основные страницы приложения
+│   │   ├── DocumentBrowser.jsx  # Основной вид библиотеки
+│   │   ├── DocumentList.jsx     # Вид содержимого папки
+│   │   ├── DocumentReader.jsx   # Вид чтения документа
+│   │   └── BookmarksPage.jsx    # Управление закладками
+│   ├── hooks/               # Пользовательские React хуки
+│   │   ├── useDocuments.js  # Управление данными документов
+│   │   └── useBookmarks.js  # Функциональность закладок
+│   ├── utils/               # Вспомогательные функции
+│   │   └── documentLoader.js # Загрузка содержимого документов
+│   ├── App.jsx             # Основной компонент приложения
+│   ├── App.css             # Глобальные стили
+│   └── main.jsx            # Точка входа приложения
+├── public/                 # Статические файлы
+└── index.html             # HTML шаблон
 ```
 
-## Technical Details
+## ⚠️ Важное замечание
 
-- **Framework**: React with Vite
-- **Routing**: React Router DOM
-- **Markdown Processing**: Marked.js
-- **State Management**: React Hooks
-- **Persistence**: localStorage
-- **Styling**: CSS Modules approach
+⚠️ **Дисклеймер**: Часть содержимого документации в этом репозитории была сгенерирована с помощью ChatGPT. Вся информация требует дополнительной проверки и валидации перед использованием в production среде или на реальных собеседованиях. Рекомендуется кросс-проверять информацию с официальной документацией и проверенными источниками.
 
-## Adding New Documents
+## 🔧 Технические детали
 
-To add new documents to the library:
+- **Фреймворк**: React с Vite
+- **Роутинг**: React Router DOM
+- **Обработка Markdown**: Marked.js
+- **Управление состоянием**: React Hooks
+- **Хранение данных**: localStorage
+- **Стилизация**: CSS Modules подход
 
-1. Add the markdown file to the appropriate folder in `/docs`
-2. Update the `getDocumentStructure()` function in `src/utils/documentLoader.js`
-3. Add the document content to the `contentMap` in the same file
+## ➕ Добавление новых документов
 
-## Bookmark Features
+Чтобы добавить новые документы в библиотеку:
 
-- Bookmarks are stored locally in browser localStorage
-- Each bookmark contains:
-  - Document reference (folder and filename)
-  - Paragraph identifier
-  - Bookmark text excerpt
-  - Timestamp
-- Bookmarks persist between sessions
-- Easy removal of individual bookmarks or all bookmarks
+1. Добавьте markdown файл в соответствующую папку в `/docs`
+2. Обновите функцию `getDocumentStructure()` в `src/utils/documentLoader.js`
+3. Добавьте содержимое документа в `contentMap` в том же файле
 
-## Responsive Design
+## 📎 Особенности закладок
 
-The application is fully responsive and works well on:
-- Desktop browsers (Chrome, Firefox, Safari, Edge)
-- Mobile devices (iOS Safari, Android Chrome)
-- Tablet devices
+- Закладки хранятся локально в localStorage браузера
+- Каждая закладка содержит:
+  - Ссылку на документ (папка и имя файла)
+  - Идентификатор абзаца
+  - Выдержку текста закладки
+  - Временную метку
+- Закладки сохраняются между сессиями
+- Простое удаление отдельных закладок или всех закладок
 
-## Future Improvements
+## 📱 Адаптивный дизайн
 
-- Backend API integration for dynamic document loading
-- User accounts and cloud synchronization
-- Search functionality within documents
-- Dark mode theme
-- Export bookmarks feature
-- Document progress tracking
+Приложение полностью адаптивно и хорошо работает на:
+- Десктопных браузерах (Chrome, Firefox, Safari, Edge)
+- Мобильных устройствах (iOS Safari, Android Chrome)
+- Планшетных устройствах
+
+## 🚀 Будущие улучшения
+
+- Интеграция с backend API для динамической загрузки документов
+- Пользовательские аккаунты и облачная синхронизация
+- Функция поиска внутри документов
+- Темная тема
+- Экспорт закладок
+- Отслеживание прогресса чтения документов

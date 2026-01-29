@@ -1,180 +1,190 @@
-# PM2 Deployment Guide
+# 📖 Руководство по развертыванию через PM2
 
-This guide explains how to run the Study Landing Page using PM2 for production deployment.
+Это руководство объясняет, как запускать Landing Page с использованием PM2 для продакшен-развертывания.
 
-## Prerequisites
+## 📁 Информация о репозитории
 
-Make sure you have PM2 installed globally:
+- **Репозиторий**: `git@github.com:site15/study.git`
+- **Автор**: EndyKaufman <admin@site15.ru>
+- **GitHub Pages**: https://site15.github.io/study
+
+## 📋 Предварительные требования
+
+Убедитесь, что у вас установлен PM2 глобально:
 ```bash
 npm install -g pm2
 ```
 
-Or install it locally in the project:
+Или установите его локально в проект:
 ```bash
 npm install pm2 --save-dev
 ```
 
-## Available Commands
+## ▶️ Доступные команды
 
-### Using npm scripts (recommended):
+### Использование npm скриптов (рекомендуется):
 
 ```bash
-# Start the application with PM2
+# Запуск приложения с PM2
 npm run pm2:start
 
-# Stop the application
+# Остановка приложения
 npm run pm2:stop
 
-# Restart the application (includes rebuild)
+# Перезапуск приложения (включает пересборку)
 npm run pm2:restart
 
-# Check application status
+# Проверка статуса приложения
 npm run pm2:status
 
-# View application logs
+# Просмотр логов приложения
 npm run pm2:logs
 ```
 
-### Using direct PM2 commands:
+### Использование прямых команд PM2:
 
 ```bash
-# Start the application
+# Запуск приложения
 pm2 start ecosystem.config.js
 
-# Stop the application
+# Остановка приложения
 pm2 stop study-landing
 
-# Restart the application
+# Перезапуск приложения
 pm2 restart study-landing
 
-# Check status
+# Проверка статуса
 pm2 status
 
-# View logs
+# Просмотр логов
 pm2 logs study-landing
 
-# Monitor in real-time
+# Мониторинг в реальном времени
 pm2 monit
 ```
 
-## Configuration
+## ⚙️ Конфигурация
 
-The `ecosystem.config.js` file configures PM2 with the following settings:
+Файл `ecosystem.config.js` настраивает PM2 со следующими параметрами:
 
-- **Application Name**: `study-landing`
-- **Port**: 3043
-- **Working Directory**: `./landing`
-- **Static Server**: Uses `serve` package to serve built files
-- **Auto-restart**: Enabled with 1GB memory limit
-- **Logging**: Logs are stored in `../logs/` directory
+- **Имя приложения**: `study-landing`
+- **Порт**: 3043
+- **Рабочая директория**: `./landing`
+- **Статический сервер**: Использует пакет `serve` для обслуживания собранных файлов
+- **Авто-перезапуск**: Включен с лимитом памяти 1GB
+- **Логирование**: Логи хранятся в директории `../logs/`
 
-## First Time Setup
+## 🚀 Первоначальная настройка
 
-1. **Install dependencies**:
+1. **Установка зависимостей**:
    ```bash
    cd landing
    npm install
    cd ..
    ```
 
-2. **Build the application**:
+2. **Сборка приложения**:
    ```bash
-   # For PM2/local deployment (empty base path)
+   # Для PM2/локального развертывания (пустой базовый путь)
    npm run build
    
-   # For GitHub Pages deployment (base path: /study/)
+   # Для развертывания на GitHub Pages (базовый путь: /study/)
    npm run build:github
    ```
 
-3. **Start with PM2**:
+3. **Запуск с PM2**:
    ```bash
    npm run pm2:start
    ```
 
-## Auto-start on System Boot
+## 🔁 Автозапуск при загрузке системы
 
-To make PM2 start automatically when the system boots:
+Чтобы PM2 автоматически запускался при загрузке системы:
 
 ```bash
-# Generate startup script
+# Генерация скрипта автозапуска
 pm2 startup
 
-# Save current PM2 configuration
+# Сохранение текущей конфигурации PM2
 pm2 save
 ```
 
-Follow the instructions provided by `pm2 startup` to complete the setup.
+Следуйте инструкциям, предоставленным `pm2 startup`, для завершения настройки.
 
-## Monitoring
+## 👁️ Мониторинг
 
-PM2 provides excellent monitoring capabilities:
+PM2 предоставляет отличные возможности мониторинга:
 
 ```bash
-# Real-time monitoring dashboard
+# Панель мониторинга в реальном времени
 pm2 monit
 
-# Check detailed status
+# Проверка подробного статуса
 pm2 list
 
-# Show application information
+# Показ информации о приложении
 pm2 show study-landing
 ```
 
-## Log Management
+## 📝 Управление логами
 
-Logs are automatically managed by PM2:
+Логи автоматически управляются PM2:
 
-- **Error logs**: `logs/err.log`
-- **Output logs**: `logs/out.log`
-- **Combined logs**: `logs/combined.log`
+- **Логи ошибок**: `logs/err.log`
+- **Логи вывода**: `logs/out.log`
+- **Комбинированные логи**: `logs/combined.log`
 
-Rotate logs automatically:
+Автоматическая ротация логов:
 ```bash
 pm2 install pm2-logrotate
 ```
 
-## Environment Variables
+## 🌐 Переменные окружения
 
-The application uses these environment variables:
+Приложение использует следующие переменные окружения:
 - `NODE_ENV=production`
 - `PORT=3043`
 
-You can modify these in the `ecosystem.config.js` file.
+Вы можете изменить их в файле `ecosystem.config.js`.
 
-## Troubleshooting
+## ❓ Устранение неполадок
 
-### Common Issues:
+### Распространенные проблемы:
 
-1. **Port already in use**:
+1. **Порт уже используется**:
    ```bash
-   # Kill process using port 3043
+   # Убить процесс, использующий порт 3043
    lsof -ti:3043 | xargs kill -9
    ```
 
-2. **Permission issues**:
+2. **Проблемы с правами доступа**:
    ```bash
-   # Make scripts executable
+   # Сделать скрипты исполняемыми
    chmod +x *.sh
    ```
 
-3. **Build errors**:
+3. **Ошибки сборки**:
    ```bash
-   # Clean and rebuild
+   # Очистка и пересборка
    cd landing
    rm -rf dist node_modules
    npm install
    npm run build
    ```
 
-## Production Checklist
+## ✅ Чек-лист для продакшена
 
-- [ ] Install PM2 globally
-- [ ] Build the application (`npm run build`)
-- [ ] Start with PM2 (`npm run pm2:start`)
-- [ ] Verify application is running (`npm run pm2:status`)
-- [ ] Test the application (`curl http://localhost:3043`)
-- [ ] Set up auto-start on boot (`pm2 startup`)
-- [ ] Configure firewall if needed
-- [ ] Set up reverse proxy (nginx/apache) if required
+- [ ] Установить PM2 глобально
+- [ ] Собрать приложение (`npm run build`)
+- [ ] Запустить с помощью PM2 (`npm run pm2:start`)
+- [ ] Проверить, что приложение запущено (`npm run pm2:status`)
+- [ ] Протестировать приложение (`curl http://localhost:3043`)
+- [ ] Настроить автозапуск при загрузке (`pm2 startup`)
+- [ ] Настроить фаервол при необходимости
+- [ ] Настроить обратный прокси (nginx/apache) при необходимости
 
-The application will be available at `http://localhost:3043` after successful deployment.
+Приложение будет доступно по адресу `http://localhost:3043` после успешного развертывания.
+
+## ⚠️ Важное замечание
+
+⚠️ **Дисклеймер**: Часть содержимого этого репозитория была сгенерирована с помощью ChatGPT. Вся информация требует дополнительной проверки и валидации перед использованием в production среде или на реальных собеседованиях. Рекомендуется кросс-проверять информацию с официальной документацией и проверенными источниками.
