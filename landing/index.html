@@ -5,6 +5,35 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>landing</title>
+    <script type="text/javascript">
+      // Handle GitHub Pages SPA routing
+      // This script checks if there's a query parameter that represents
+      // the original route and restores it
+      (function() {
+        var location = window.location;
+        var decoded = location.protocol + '//' + location.host + location.pathname;
+        
+        // Check if there's a query parameter that starts with /
+        var q = location.search.slice(1).split('&');
+        var i = q.length;
+        var query = {};
+        
+        while (i--) {
+          var parts = q[i].split('=');
+          query[decodeURIComponent(parts[0])] = decodeURIComponent(parts[1] || '');
+        }
+        
+        // If there's a path parameter, restore the original URL
+        if (query['/']) {
+          var newPath = query['/'].replace(/~and~/g, '&');
+          if (newPath[0] !== '/') {
+            newPath = '/' + newPath;
+          }
+          decoded += newPath + (location.hash || '');
+          history.replaceState(null, null, decoded);
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
